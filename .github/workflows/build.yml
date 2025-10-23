@@ -1,0 +1,40 @@
+name: Build Plugin
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Required to get the git history for the SHA
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.0"
+
+      - name: Get version
+        id: get_version
+        run: echo "VERSION=$(date +%Y-%m-%d)-$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Install Composer dependencies
+        run: composer install --no-dev --optimize-autoloader
+
+      - name: Make build script executable
+        run: chmod +x build.sh
+
+      - name: Build plugin
+        run: ./build.sh ${{ steps.get_version.outputs.VERSION }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: qrcode-manager-v${{ steps.get_version.outputs.VERSION }}
+          path: dist/qrcode-manager-v${{ steps.get_version.outputs.VERSION }}.zip

@@ -5,7 +5,8 @@ PLUGIN_SLUG="qrcode-manager"
 DIST_DIR="dist"
 BUILD_DIR_BASE="$DIST_DIR"
 BUILD_DIR="$BUILD_DIR_BASE/$PLUGIN_SLUG"
-ZIP_FILE="$PLUGIN_SLUG.zip"
+VERSION_ARG=${1:-"$(date +%Y-%m-%d)-$(git rev-parse --short HEAD)"}
+ZIP_FILE="$PLUGIN_SLUG-v$VERSION_ARG.zip"
 
 # 1. Create build directory
 echo "Creating build directory..."
