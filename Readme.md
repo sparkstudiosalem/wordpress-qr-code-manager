@@ -4,7 +4,7 @@ This WordPress plugin allows you to create, manage, and display QR codes on your
 
 ## Installation
 
-1.  **Download the Plugin**: Download the latest version of the plugin as a `.zip` file from the build artifacts of the latest [Github Action run](https://github.com/sparkstudiosalem/wordpress-qr-code-manager/actions).
+1.  **Download the Plugin**: Download the latest version of the plugin as a `.zip` file from the [releases page](https://github.com/sparkstudiosalem/wordpress-qr-code-manager/releases).
 2.  **Log in to WordPress**: Log in to your WordPress admin dashboard.
 3.  **Navigate to Plugins**: Go to `Plugins > Add New`.
 4.  **Upload Plugin**: Click the "Upload Plugin" button at the top of the page.

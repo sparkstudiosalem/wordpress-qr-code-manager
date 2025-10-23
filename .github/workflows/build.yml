@@ -33,8 +33,11 @@ jobs:
       - name: Build plugin
         run: ./build.sh ${{ steps.get_version.outputs.VERSION }}
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
+      - name: Create Release and Upload Asset
+        uses: softprops/action-gh-release@v1
         with:
-          name: qrcode-manager-v${{ steps.get_version.outputs.VERSION }}
-          path: dist/qrcode-manager-v${{ steps.get_version.outputs.VERSION }}.zip
+          tag_name: v${{ steps.get_version.outputs.VERSION }}
+          name: "Release ${{ steps.get_version.outputs.VERSION }}"
+          files: dist/qrcode-manager-v${{ steps.get_version.outputs.VERSION }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
