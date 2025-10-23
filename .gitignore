@@ -1,0 +1,7 @@
+.DS_Store
+/data/qrcodes.db
+vendor/
+composer.phar
+dist/
+node_modules/
+
