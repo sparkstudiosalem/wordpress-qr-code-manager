@@ -20,7 +20,9 @@
                             <?php foreach ($qrcodes as $qrcode) : ?>
                                 <tr>
                                     <td>
-                                        <img src="<?php echo esc_url(get_option('qrcode_manager_public_root', '/qrcode/') . $qrcode->slug . '/svg'); ?>" width="80" height="80" />
+                                        <a href="<?php echo esc_url(get_option('qrcode_manager_public_root', '/qrcode/') . $qrcode->slug . '/svg'); ?>" target="_blank">
+                                            <img src="<?php echo esc_url(get_option('qrcode_manager_public_root', '/qrcode/') . $qrcode->slug . '/svg'); ?>" width="80" height="80" />
+                                        </a>
                                     </td>
                                     <td><?php echo esc_html($qrcode->slug); ?></td>
                                     <td><a href="<?php echo esc_url($qrcode->destination_url); ?>" target="_blank"><?php echo esc_url($qrcode->destination_url); ?></a></td>
