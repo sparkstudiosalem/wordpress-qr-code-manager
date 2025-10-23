@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Required to get the git history for the SHA
 
@@ -34,7 +34,7 @@ jobs:
         run: ./build.sh ${{ steps.get_version.outputs.VERSION }}
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: qrcode-manager-v${{ steps.get_version.outputs.VERSION }}
           path: dist/qrcode-manager-v${{ steps.get_version.outputs.VERSION }}.zip
